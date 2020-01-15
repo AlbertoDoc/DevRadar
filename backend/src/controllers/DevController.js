@@ -72,6 +72,21 @@ module.exports = {
     },
 
     async destroy(request, response) {
+        // Pegando o dev no banco de dados atraves de seu usuario github
+        const { github_username } = request.query;
 
+        // Passando usuario do github para a funcao findOneAndDelete remove-lo
+        let dev = await Dev.findOneAndDelete({ github_username });
+
+        // Verificando se o dev esta no banco de dados
+        dev = await Dev.findOne({ github_username });
+
+        // Verificacao para mandar um retorno se o dev foi removido
+        if(!dev){
+            return response.json({ message: "dev deletado" });
+        }
+        else{
+            return response.json({ message: "dev nao deletado" });
+        }
     },
 };
