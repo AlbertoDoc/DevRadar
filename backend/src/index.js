@@ -13,15 +13,6 @@ mongoose.connect("mongodb+srv://alberto:ww6aa4mm@cluster0-urv4g.mongodb.net/week
 app.use(express.json());
 app.use(routes);
 
-// Métodos HTTP: GET, POST, PUT, DELETE
-
-//Tipos de parâmetros:
-
-// Query Params: request.query (Filtros, ordenação, paginação, ...)
-// Route Params: request.params (Identificar um recuso na alteração ou remoção)
-// Body: request.body (Dadis oara criação ou alteração de um registro)
-
-
 // MongoDB (Não-relacional)
 
 app.listen(3333);
